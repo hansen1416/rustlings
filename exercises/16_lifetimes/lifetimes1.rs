@@ -8,14 +8,10 @@
 // Execute `rustlings hint lifetimes1` or use the `hint` watch subcommand for a
 // hint.
 
-// I AM NOT DONE
-
-fn longest(x: &str, y: &str) -> &str {
-    if x.len() > y.len() {
-        x
-    } else {
-        y
-    }
+// The lifetime parameter 'a indicates that the references x and y must have the same lifetime.
+// This means that they must both refer to data that is valid for the same duration.
+fn longest<'c>(x: &'c str, y: &'c str) -> &'c str {
+    if x.len() > y.len() { x } else { y }
 }
 
 fn main() {
